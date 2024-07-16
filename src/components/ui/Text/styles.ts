@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 const fontSize = {
   sm: '0.9rem',
   md: '1rem',
-  lg: '1.5rem',
-  xl: '2rem',
-  '2xl': '2.5rem',
+  lg: '1.2rem',
+  xl: '1.5rem',
+  '2xl': '1.7rem',
 };
 
 export const textStyle = (
@@ -14,7 +14,7 @@ export const textStyle = (
 ) => {
   if (isBold) {
     return css({
-      fontWeight: '600',
+      fontWeight: '700',
       fontSize: fontSize[size],
     });
   }

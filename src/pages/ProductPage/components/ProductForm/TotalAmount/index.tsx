@@ -12,8 +12,12 @@ export const TotalAmount = () => {
       alignItems="center"
       css={calloutStyle}
     >
-      <Text size="md">총 결제 금액</Text>
-      <Text size="lg">6500원</Text>
+      <Text size="sm" isBold>
+        총 결제 금액
+      </Text>
+      <Text size="lg" isBold>
+        6500원
+      </Text>
     </Callout>
   );
 };

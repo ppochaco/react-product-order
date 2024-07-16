@@ -13,8 +13,8 @@ export const ProductDetail = () => {
       <Image src={DEFAULT_IMAGE_URL} ratio="square" />
       <Container flexDirection="column" gap="2rem" css={textContainerStyle}>
         <Container flexDirection="column" gap="1rem">
-          <Text size="lg">떠먹는 아박</Text>
-          <Text size="lg">6500원</Text>
+          <Text size="2xl">떠먹는 아박</Text>
+          <Text size="2xl">6500원</Text>
         </Container>
         <Divider />
         <Text size="sm" isBold>
