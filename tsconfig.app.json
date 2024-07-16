@@ -26,10 +26,10 @@
     /* Alias */
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
 
     /* emotion */
-    "jsxImportSource": "@emotion/react"
+    // "jsxImportSource": "@emotion/react"
   },
   "include": ["src", ".eslintrc.cjs"]
 }
