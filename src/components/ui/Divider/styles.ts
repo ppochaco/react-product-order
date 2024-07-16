@@ -12,6 +12,8 @@ export const dividerStyle = (direction: 'vertical' | 'horizontal') => {
     });
   return css({
     width: '100%',
-    borderColor: colors.newGray[200],
+    height: '1px',
+    border: 'none',
+    backgroundColor: colors.newGray[200],
   });
 };
