@@ -4,4 +4,5 @@ export const ROUTER_PATH = {
   LOGIN: '/login',
   MY_ACCOUNT: '/my-account',
   PRODUCTS: '/products/:productId',
+  ORDER: '/order',
 };

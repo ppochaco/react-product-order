@@ -4,6 +4,7 @@ import { HomePage } from '@/pages/HomePage';
 import { LoginPage } from '@/pages/LoginPage';
 import { MyAccountPage } from '@/pages/MyAccountPage';
 import NotFound from '@/pages/NotFound';
+import { OrderPage } from '@/pages/OrderPage';
 import { ProductPage } from '@/pages/ProductPage';
 import { ThemePage } from '@/pages/ThemePage';
 import { AuthProvider } from '@/provider/auth/AuthProvider';
@@ -26,6 +27,7 @@ export const Router = () => {
             <Route index element={<MyAccountPage />} />
           </Route>
           <Route path={ROUTER_PATH.PRODUCTS} element={<ProductPage />} />
+          <Route path={ROUTER_PATH.ORDER} element={<OrderPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>

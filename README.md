@@ -19,7 +19,8 @@
 
 - [x] 상세 페이지
   - 추가한 컴포넌트: Card, Divider, Text
-- [ ] 결제 페이지
+- [x] 결제 페이지
+  - 추가한 컴포넌트: Checkbox, Select, TextArea
 
 #### api 연결
 
