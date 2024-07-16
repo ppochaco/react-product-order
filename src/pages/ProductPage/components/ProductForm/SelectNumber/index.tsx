@@ -1,9 +1,10 @@
 import { Card } from '@/components/Card';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input/Default';
 import { Container } from '@/components/ui/Layout/Container';
 import { Text } from '@/components/ui/Text';
 
-import { buttonStyle, cardStyle, inputStyle } from './styles';
+import { buttonStyle, cardStyle } from './styles';
 
 export const SelectNumber = () => {
   return (
@@ -13,7 +14,7 @@ export const SelectNumber = () => {
         <Button theme="lightGray" size="medium" css={buttonStyle}>
           -
         </Button>
-        <input type="number" css={inputStyle} />
+        <Input type="number" />
         <Button theme="lightGray" size="medium" css={buttonStyle}>
           +
         </Button>
