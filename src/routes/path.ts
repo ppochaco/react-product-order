@@ -3,4 +3,5 @@ export const ROUTER_PATH = {
   THEME: '/theme/:themeKey',
   LOGIN: '/login',
   MY_ACCOUNT: '/my-account',
+  PRODUCTS: '/products/:productId',
 };

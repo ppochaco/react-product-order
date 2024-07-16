@@ -6,12 +6,14 @@ import { contentStyle } from './styles';
 
 interface ContentProps extends ContainerProps {
   children: ReactNode;
+  maxWidth?: string;
   backgroundColor?: string;
   height?: string;
 }
 
 export const Content = ({
   children,
+  maxWidth = '1024px',
   backgroundColor = 'transparent',
   height = 'fit-content',
   flexDirection,
@@ -23,7 +25,7 @@ export const Content = ({
   return (
     <div css={contentStyle(backgroundColor, height)} {...rest}>
       <Container
-        maxWidth="1024px"
+        maxWidth={maxWidth}
         flexDirection={flexDirection}
         justifyContent={justifyContent}
         alignItems={alignItems}

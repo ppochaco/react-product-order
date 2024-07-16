@@ -17,20 +17,9 @@
 
 #### 페이지 ui
 
-- [ ] 상세 페이지
-
-  - [ ] Heading
-  - [ ] Text
-  - [ ] Divider
-  - [ ] Form Control
-  - [ ] Number Input
-
+- [x] 상세 페이지
+  - 추가한 컴포넌트: Card, Divider, Text
 - [ ] 결제 페이지
-  - [ ] Textarea
-  - [ ] Card
-  - [ ] Checkbox
-  - [ ] Select
-  - [ ] Input
 
 #### api 연결
 
