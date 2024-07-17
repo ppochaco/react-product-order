@@ -6,3 +6,9 @@ export const ROUTER_PATH = {
   PRODUCTS: '/products/:productId',
   ORDER: '/order',
 };
+
+export const getDynamicPath = {
+  theme: (themeKey: string) => ROUTER_PATH.THEME.replace(':themeKey', themeKey),
+  products: (productId: string) =>
+    ROUTER_PATH.PRODUCTS.replace(':productId', productId),
+};
