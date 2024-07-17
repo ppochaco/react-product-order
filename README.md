@@ -24,7 +24,7 @@
 
 #### api 연결
 
-- [ ] 상품 상세 정보
+- [x] 상품 상세 정보
   - /api/v1/products/{productId}/detail
 - [ ] 상품 옵션 정보
   - /api/v1/products/{productId}/options

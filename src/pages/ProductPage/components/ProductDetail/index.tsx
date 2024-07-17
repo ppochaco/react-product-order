@@ -1,5 +1,6 @@
-import { DEFAULT_IMAGE_URL } from '@/constants/data';
+import { useProductDetail } from '@/api/hooks/useProductDetail';
 
+import { OneTextContainer } from '@/components/OneTextContainer';
 import { Divider } from '@/components/ui/Divider';
 import { Image } from '@/components/ui/Image/Default';
 import { Container } from '@/components/ui/Layout/Container';
@@ -7,14 +8,24 @@ import { Text } from '@/components/ui/Text';
 
 import { containerStyle, textContainerStyle } from './styles';
 
-export const ProductDetail = () => {
+type ProductDetailProps = {
+  productId: string;
+};
+
+export const ProductDetail = ({ productId }: ProductDetailProps) => {
+  const { productDetail, error } = useProductDetail(Number(productId));
+
+  if (error) {
+    return <OneTextContainer>{error.message}</OneTextContainer>;
+  }
+
   return (
     <Container gap="2rem" css={containerStyle}>
-      <Image src={DEFAULT_IMAGE_URL} ratio="square" />
+      <Image src={productDetail.imageURL} ratio="square" />
       <Container flexDirection="column" gap="2rem" css={textContainerStyle}>
         <Container flexDirection="column" gap="1rem">
-          <Text size="2xl">떠먹는 아박</Text>
-          <Text size="2xl">6500원</Text>
+          <Text size="2xl">{productDetail.productName}</Text>
+          <Text size="2xl">{productDetail.price}원</Text>
         </Container>
         <Divider />
         <Text size="sm" isBold>
