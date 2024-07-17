@@ -4,7 +4,7 @@ import { fetchProductDetail } from '@/api/services/productDetail';
 
 export const useProductDetail = (productId: number) => {
   const { data, status, error } = useSuspenseQuery({
-    queryKey: ['product', 'detail'],
+    queryKey: ['product', 'detail', productId],
     queryFn: () => fetchProductDetail(productId),
   });
 

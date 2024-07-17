@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { ProductData } from '@/types/productType';
 
 import { RankingGoodsItem } from '@/components/GoodsItem/Ranking/Ranking';
@@ -19,15 +21,16 @@ export const RankList = ({ filteredRankList }: RankListProps) => {
     >
       {filteredRankList.map(
         ({ id, imageURL, name, brandInfo, price }: ProductData, index) => (
-          <RankingGoodsItem
-            key={id}
-            imageSrc={imageURL}
-            rank={index + 1}
-            title={name}
-            subtitle={brandInfo.name}
-            amount={price.sellingPrice}
-            isLazy={index > 5}
-          />
+          <Link to={`/products/${id}`} key={id}>
+            <RankingGoodsItem
+              imageSrc={imageURL}
+              rank={index + 1}
+              title={name}
+              subtitle={brandInfo.name}
+              amount={price.sellingPrice}
+              isLazy={index > 5}
+            />
+          </Link>
         )
       )}
     </Grid>

@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import { useProductOptions } from '@/api/hooks/useProductOptions';
+import { ROUTER_PATH } from '@/routes/path';
 
 import { OneTextContainer } from '@/components/OneTextContainer';
 import { Button } from '@/components/ui/Button';
@@ -24,9 +27,11 @@ export const ProductForm = ({ productId }: ProductFormProps) => {
       <SelectNumber productName={data.productName} />
       <Container flexDirection="column" gap="1rem">
         <TotalAmount productPrice={data.productPrice} />
-        <Button theme="black" css={buttonStyle}>
-          나에게 선물하기
-        </Button>
+        <Link to={ROUTER_PATH.ORDER}>
+          <Button theme="black" css={buttonStyle}>
+            나에게 선물하기
+          </Button>
+        </Link>
       </Container>
     </form>
   );
