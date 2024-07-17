@@ -61,3 +61,23 @@ export interface ProductDetailData extends ProductData {
   productDescription: ProductDescriptionData;
   productDetailInfo: ProductDetailInfoData;
 }
+
+type OptionItem = {
+  key: string;
+  value: string;
+  level: number;
+  options: OptionItem[];
+  id: number;
+  usable: boolean;
+  price: number;
+};
+
+export type ProductOptions = {
+  productId: number;
+  productName: string;
+  productPrice: number;
+  hasOption: boolean;
+  giftOrderLimit: number;
+  names: string[];
+  options: OptionItem[];
+};

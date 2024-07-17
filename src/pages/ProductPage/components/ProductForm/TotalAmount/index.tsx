@@ -3,7 +3,11 @@ import { Text } from '@/components/ui/Text';
 
 import { calloutStyle } from './styles';
 
-export const TotalAmount = () => {
+type TotalPriceProps = {
+  productPrice: number;
+};
+
+export const TotalAmount = ({ productPrice }: TotalPriceProps) => {
   return (
     <Callout
       radius={3}
@@ -16,7 +20,7 @@ export const TotalAmount = () => {
         총 결제 금액
       </Text>
       <Text size="lg" isBold>
-        6500원
+        {productPrice} 원
       </Text>
     </Callout>
   );

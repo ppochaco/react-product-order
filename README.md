@@ -26,7 +26,7 @@
 
 - [x] 상품 상세 정보
   - /api/v1/products/{productId}/detail
-- [ ] 상품 옵션 정보
+- [x] 상품 옵션 정보
   - /api/v1/products/{productId}/options
 
 #### 리다이렉트 처리
@@ -35,3 +35,11 @@
 - [ ] 나에게 선물하기 버튼 클릭 시 로그인이 되어있지 않다면 로그인 페이지로 이동
 
 #### form 로직 구현
+
+- [ ] -, + 버튼 클릭 시 개수 조절하기
+
+#### 선택한 상품 상태관리
+
+- [ ] 선물하기 버튼 클릭 시 전역에 해당 상품 내용 저장
+  - detail api: imageURL, brandInfo.name, name
+  - 총 금액: 개수(입력) \* 금액(데이터)

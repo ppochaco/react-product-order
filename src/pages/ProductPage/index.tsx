@@ -22,7 +22,7 @@ export const ProductPage = () => {
     <BaseLayout>
       <Content gap="2rem" height="92vh" maxWidth="1296px" css={containerStyle}>
         <ProductDetail productId={productId} />
-        <ProductForm />
+        <ProductForm productId={productId} />
       </Content>
     </BaseLayout>
   );

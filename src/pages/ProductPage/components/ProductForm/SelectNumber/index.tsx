@@ -6,10 +6,14 @@ import { Text } from '@/components/ui/Text';
 
 import { buttonStyle, cardStyle } from './styles';
 
-export const SelectNumber = () => {
+type SelectNumberProps = {
+  productName: string;
+};
+
+export const SelectNumber = ({ productName }: SelectNumberProps) => {
   return (
     <Card flexDirection="column" gap="0.5rem" css={cardStyle}>
-      <Text isBold>떠먹는 아박</Text>
+      <Text isBold>{productName}</Text>
       <Container flexDirection="row" gap="0.5rem">
         <Button theme="lightGray" size="medium" css={buttonStyle}>
           -
