@@ -9,6 +9,7 @@ interface ContentProps extends ContainerProps {
   maxWidth?: string;
   backgroundColor?: string;
   height?: string;
+  padding?: string;
 }
 
 export const Content = ({
@@ -20,6 +21,7 @@ export const Content = ({
   justifyContent,
   alignItems,
   gap,
+  padding = '0',
   ...rest
 }: ContentProps) => {
   return (
@@ -30,6 +32,7 @@ export const Content = ({
         justifyContent={justifyContent}
         alignItems={alignItems}
         gap={gap}
+        css={{ padding }}
       >
         {children}
       </Container>

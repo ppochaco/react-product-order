@@ -34,7 +34,7 @@ export const useOrderForm = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(JSON.stringify(formData)); // form data 확인용
+    alert('주문이 완료되었습니다.');
   };
 
   return { formData, handleCheckboxChange, handleInputChange, handleSubmit };

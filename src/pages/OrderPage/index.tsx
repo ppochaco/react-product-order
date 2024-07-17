@@ -1,6 +1,7 @@
 import BaseLayout from '@/layouts/BaseLayout';
 
 import { Content } from '@/components/Content';
+import { Divider } from '@/components/ui/Divider';
 
 import { GiftSection } from './components/GiftSection';
 import { PaymentSection } from './components/PaymentSection';
@@ -13,16 +14,19 @@ export const OrderPage = () => {
   return (
     <BaseLayout>
       <form onSubmit={handleSubmit}>
-        <Content height="92vh" maxWidth="1296px">
+        <Content height="92vh" maxWidth="1280px">
+          <Divider direction="vertical" />
           <GiftSection
             formData={formData}
             handleInputChange={handleInputChange}
           />
+          <Divider direction="vertical" />
           <PaymentSection
             formData={formData}
             handleCheckboxChange={handleCheckboxChange}
             handleInputChange={handleInputChange}
           />
+          <Divider direction="vertical" />
         </Content>
       </form>
     </BaseLayout>

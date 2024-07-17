@@ -29,7 +29,8 @@ export const ProductPage = () => {
           <Content
             gap="2rem"
             height="92vh"
-            maxWidth="1296px"
+            maxWidth="1280px"
+            padding="0 3rem"
             css={containerStyle}
           >
             <ProductDetail productId={Number(productId)} />

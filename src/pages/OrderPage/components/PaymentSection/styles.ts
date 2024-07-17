@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const containerStyle = css({
   width: '32rem',
-  padding: '3rem 1rem',
+  padding: '3rem 2rem',
 });
 
 export const buttonStyle = css({

@@ -24,7 +24,7 @@ export const ProductDetail = ({ productId }: ProductDetailProps) => {
       <Image src={productDetail.imageURL} ratio="square" />
       <Container flexDirection="column" gap="2rem" css={textContainerStyle}>
         <Container flexDirection="column" gap="1rem">
-          <Text size="2xl">{productDetail.productName}</Text>
+          <Text size="xl">{productDetail.productName}</Text>
           <Text size="2xl">{productDetail.price}원</Text>
         </Container>
         <Divider />
