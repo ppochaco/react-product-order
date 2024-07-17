@@ -13,24 +13,28 @@ import { TotalPriceCallout } from './TotalPriceCallout';
 import { buttonStyle, containerStyle } from './style';
 
 type ProductFormProps = {
-  productId: string;
+  productId: number;
 };
 
 export const ProductForm = ({ productId }: ProductFormProps) => {
   const { data, error } = useProductOptions(productId);
   const { totalPrice, quantity, updateQuantity } = useTotalPrice(productId);
+  const { orderProductDetail } = useProductDetail(productId);
+  const { navigateToOrder } = useNavigateToOrder();
+  const { updateOrderDetail } = useOrder();
 
   if (error) {
     return <OneTextContainer>{error.message}</OneTextContainer>;
   }
 
-  const { orderProductDetail } = useProductDetail(productId);
-  const { navigateToOrder } = useNavigateToOrder();
-  const { updateOrderDetail } = useOrder();
-
   const onClick = () => {
     navigateToOrder();
-    updateOrderDetail(orderProductDetail, totalPrice);
+    updateOrderDetail(
+      orderProductDetail,
+      totalPrice,
+      Number(productId),
+      quantity
+    );
   };
 
   return (

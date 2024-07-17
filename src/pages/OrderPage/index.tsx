@@ -2,16 +2,29 @@ import BaseLayout from '@/layouts/BaseLayout';
 
 import { Content } from '@/components/Content';
 
-import { GiftSection } from './GiftSection';
-import { PaymentSection } from './PaymentSection';
+import { GiftSection } from './components/GiftSection';
+import { PaymentSection } from './components/PaymentSection';
+import { useOrderForm } from './hooks/useOrderForm';
 
 export const OrderPage = () => {
+  const { formData, handleCheckboxChange, handleInputChange, handleSubmit } =
+    useOrderForm();
+
   return (
     <BaseLayout>
-      <Content height="92vh" maxWidth="1296px">
-        <GiftSection />
-        <PaymentSection />
-      </Content>
+      <form onSubmit={handleSubmit}>
+        <Content height="92vh" maxWidth="1296px">
+          <GiftSection
+            formData={formData}
+            handleInputChange={handleInputChange}
+          />
+          <PaymentSection
+            formData={formData}
+            handleCheckboxChange={handleCheckboxChange}
+            handleInputChange={handleInputChange}
+          />
+        </Content>
+      </form>
     </BaseLayout>
   );
 };

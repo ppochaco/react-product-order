@@ -1,4 +1,5 @@
 import { useOrder } from '@/provider/order/useOrder';
+import { OrderFormType } from '@/types/orderType';
 
 import { Button } from '@/components/ui/Button';
 import { Divider } from '@/components/ui/Divider';
@@ -9,7 +10,17 @@ import { CashCheckForm } from './CashCheckForm';
 import { FinalPrice } from './FinalPrice';
 import { buttonStyle, containerStyle } from './styles';
 
-export const PaymentSection = () => {
+type PaymentSectionProps = {
+  formData: OrderFormType;
+  handleCheckboxChange: (checkboxField: keyof OrderFormType) => void;
+  handleInputChange: (inputField: keyof OrderFormType, value: string) => void;
+};
+
+export const PaymentSection = ({
+  formData,
+  handleCheckboxChange,
+  handleInputChange,
+}: PaymentSectionProps) => {
   const { orderDetail } = useOrder();
 
   return (
@@ -18,7 +29,11 @@ export const PaymentSection = () => {
         결제 정보
       </Text>
       <Divider />
-      <CashCheckForm />
+      <CashCheckForm
+        formData={formData}
+        handleCheckboxChange={handleCheckboxChange}
+        handleInputChange={handleInputChange}
+      />
       <Divider />
       <FinalPrice />
       <Divider />

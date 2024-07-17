@@ -9,17 +9,8 @@ interface CheckboxProps extends InputProps {
 }
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ checked, onChange, ...props }, ref) => {
-    return (
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={onChange}
-        css={checkboxStyle}
-        ref={ref}
-        {...props}
-      />
-    );
+  ({ ...props }, ref) => {
+    return <input type="checkbox" css={checkboxStyle} ref={ref} {...props} />;
   }
 );
 

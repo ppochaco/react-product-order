@@ -1,13 +1,8 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 
-import { ProductDetail } from '@/types/productType';
+import { OrderDetail, OrderProductDetail } from '@/types/orderType';
 
 import { OrderContext } from './OrderContext';
-
-export type OrderDetail = {
-  productDetail: ProductDetail;
-  finalPrice: number;
-};
 
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [orderDetail, setOrderDetail] = useState<OrderDetail>({
@@ -18,20 +13,37 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
       productName: '카카오프렌즈_튜브',
     },
     finalPrice: 1000,
+    productId: 1,
+    productQuantity: 1,
   });
 
-  const updateOrderDetail = (
-    productDetail: ProductDetail,
-    finalPrice: number
-  ) => {
-    setOrderDetail({
-      productDetail,
-      finalPrice,
-    });
-  };
+  const updateOrderDetail = useCallback(
+    (
+      productDetail: OrderProductDetail,
+      finalPrice: number,
+      productId: number,
+      productQuantity: number
+    ) => {
+      setOrderDetail({
+        productDetail,
+        finalPrice,
+        productId,
+        productQuantity,
+      });
+    },
+    []
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      orderDetail,
+      updateOrderDetail,
+    }),
+    [orderDetail, updateOrderDetail]
+  );
 
   return (
-    <OrderContext.Provider value={{ orderDetail, updateOrderDetail }}>
+    <OrderContext.Provider value={contextValue}>
       {children}
     </OrderContext.Provider>
   );

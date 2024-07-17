@@ -21,7 +21,7 @@ export const SelectQuantity = ({
 }: SelectQuantityProps) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-    if (isNaN(value)) return;
+    if (Number.isNaN(value)) return;
     setQuantity(value);
   };
 

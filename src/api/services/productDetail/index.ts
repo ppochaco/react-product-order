@@ -3,7 +3,7 @@ import { API_ERROR_MESSAGES } from '@/constants/errorMessage';
 
 import { GetProductDetailResponse } from './types';
 
-export const fetchProductDetail = async (productId: string) => {
+export const fetchProductDetail = async (productId: number) => {
   try {
     const response = await BACKEND_API.get<GetProductDetailResponse>(
       `/api/v1/products/${productId}/detail`

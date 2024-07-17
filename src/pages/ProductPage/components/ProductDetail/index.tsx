@@ -9,7 +9,7 @@ import { Text } from '@/components/ui/Text';
 import { containerStyle, textContainerStyle } from './styles';
 
 type ProductDetailProps = {
-  productId: string;
+  productId: number;
 };
 
 export const ProductDetail = ({ productId }: ProductDetailProps) => {

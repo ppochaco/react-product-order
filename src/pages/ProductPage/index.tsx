@@ -32,8 +32,8 @@ export const ProductPage = () => {
             maxWidth="1296px"
             css={containerStyle}
           >
-            <ProductDetail productId={productId} />
-            <ProductForm productId={productId} />
+            <ProductDetail productId={Number(productId)} />
+            <ProductForm productId={Number(productId)} />
           </Content>
         </Suspense>
       </ErrorBoundary>

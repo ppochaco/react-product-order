@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useProductDetail } from '@/api/hooks/useProductDetail';
 
-export const useTotalPrice = (productId: string) => {
+export const useTotalPrice = (productId: number) => {
   const { productPrice } = useProductDetail(productId);
 
   const [quantity, setQuantity] = useState(1);
