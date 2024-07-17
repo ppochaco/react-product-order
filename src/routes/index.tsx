@@ -26,8 +26,10 @@ export const Router = () => {
           <Route path={ROUTER_PATH.MY_ACCOUNT} element={<ProtectedRoute />}>
             <Route index element={<MyAccountPage />} />
           </Route>
+          <Route path={ROUTER_PATH.ORDER} element={<ProtectedRoute />}>
+            <Route index element={<OrderPage />} />
+          </Route>
           <Route path={ROUTER_PATH.PRODUCTS} element={<ProductPage />} />
-          <Route path={ROUTER_PATH.ORDER} element={<OrderPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>

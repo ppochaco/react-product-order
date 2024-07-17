@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
-
 import { useProductOptions } from '@/api/hooks/useProductOptions';
-import { ROUTER_PATH } from '@/routes/path';
+import { useNavigateOrder } from '@/pages/ProductPage/hooks/useNavigateOrder';
 
 import { OneTextContainer } from '@/components/OneTextContainer';
 import { Button } from '@/components/ui/Button';
@@ -17,7 +15,7 @@ type ProductFormProps = {
 
 export const ProductForm = ({ productId }: ProductFormProps) => {
   const { data, error } = useProductOptions(Number(productId));
-
+  const { handleGiftClick } = useNavigateOrder();
   if (error) {
     return <OneTextContainer>{error.message}</OneTextContainer>;
   }
@@ -27,11 +25,9 @@ export const ProductForm = ({ productId }: ProductFormProps) => {
       <SelectNumber productName={data.productName} />
       <Container flexDirection="column" gap="1rem">
         <TotalAmount productPrice={data.productPrice} />
-        <Link to={ROUTER_PATH.ORDER}>
-          <Button theme="black" css={buttonStyle}>
-            나에게 선물하기
-          </Button>
-        </Link>
+        <Button theme="black" onClick={handleGiftClick} css={buttonStyle}>
+          나에게 선물하기
+        </Button>
       </Container>
     </form>
   );
