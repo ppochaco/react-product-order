@@ -81,3 +81,9 @@ export type ProductOptions = {
   names: string[];
   options: OptionItem[];
 };
+
+export type ProductDetail = {
+  imageURL: string;
+  brandName: string;
+  productName: string;
+};

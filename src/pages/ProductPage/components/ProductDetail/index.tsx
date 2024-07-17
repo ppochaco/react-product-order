@@ -13,7 +13,7 @@ type ProductDetailProps = {
 };
 
 export const ProductDetail = ({ productId }: ProductDetailProps) => {
-  const { productDetail, error } = useProductDetail(Number(productId));
+  const { productDetail, error } = useProductDetail(productId);
 
   if (error) {
     return <OneTextContainer>{error.message}</OneTextContainer>;

@@ -1,34 +1,55 @@
+import { useProductDetail } from '@/api/hooks/useProductDetail';
 import { useProductOptions } from '@/api/hooks/useProductOptions';
-import { useNavigateOrder } from '@/pages/ProductPage/hooks/useNavigateOrder';
+import { useNavigateToOrder } from '@/pages/ProductPage/hooks/useNavigateToOrder';
+import { useTotalPrice } from '@/pages/ProductPage/hooks/useTotalPrice';
+import { useOrder } from '@/provider/order/useOrder';
 
 import { OneTextContainer } from '@/components/OneTextContainer';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Layout/Container';
 
-import { SelectNumber } from './SelectNumber';
-import { TotalAmount } from './TotalAmount';
-import { buttonStyle, formStyle } from './style';
+import { SelectQuantity } from './SelectQuantity';
+import { TotalPriceCallout } from './TotalPriceCallout';
+import { buttonStyle, containerStyle } from './style';
 
 type ProductFormProps = {
   productId: string;
 };
 
 export const ProductForm = ({ productId }: ProductFormProps) => {
-  const { data, error } = useProductOptions(Number(productId));
-  const { handleGiftClick } = useNavigateOrder();
+  const { data, error } = useProductOptions(productId);
+  const { totalPrice, quantity, updateQuantity } = useTotalPrice(productId);
+
   if (error) {
     return <OneTextContainer>{error.message}</OneTextContainer>;
   }
 
+  const { orderProductDetail } = useProductDetail(productId);
+  const { navigateToOrder } = useNavigateToOrder();
+  const { updateOrderDetail } = useOrder();
+
+  const onClick = () => {
+    navigateToOrder();
+    updateOrderDetail(orderProductDetail, totalPrice);
+  };
+
   return (
-    <form onSubmit={(e) => e.preventDefault()} css={formStyle}>
-      <SelectNumber productName={data.productName} />
+    <Container
+      flexDirection="column"
+      justifyContent="space-between"
+      css={containerStyle}
+    >
+      <SelectQuantity
+        productName={data.productName}
+        quantity={quantity}
+        setQuantity={updateQuantity}
+      />
       <Container flexDirection="column" gap="1rem">
-        <TotalAmount productPrice={data.productPrice} />
-        <Button theme="black" onClick={handleGiftClick} css={buttonStyle}>
+        <TotalPriceCallout totalPrice={totalPrice} />
+        <Button theme="black" onClick={onClick} css={buttonStyle}>
           나에게 선물하기
         </Button>
       </Container>
-    </form>
+    </Container>
   );
 };

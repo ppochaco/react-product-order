@@ -1,12 +1,9 @@
 import { css } from '@emotion/react';
 
-export const formStyle = css({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  minWidth: '16rem',
+export const containerStyle = css({
+  minWidth: '18rem',
   '@media (min-width: 768px)': {
-    minWidth: '20rem',
+    maxWidth: '24rem',
   },
 });
 
