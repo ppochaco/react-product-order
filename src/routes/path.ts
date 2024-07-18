@@ -9,6 +9,6 @@ export const ROUTER_PATH = {
 
 export const getDynamicPath = {
   theme: (themeKey: string) => ROUTER_PATH.THEME.replace(':themeKey', themeKey),
-  products: (productId: string) =>
-    ROUTER_PATH.PRODUCTS.replace(':productId', productId),
+  products: (productId: number) =>
+    ROUTER_PATH.PRODUCTS.replace(':productId', productId.toString()),
 };

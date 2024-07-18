@@ -1,14 +1,11 @@
 import { FormEvent, useState } from 'react';
 
-import { useOrder } from '@/provider/order/useOrder';
 import { OrderFormType } from '@/types/orderType';
 
 export const useOrderForm = () => {
-  const { orderDetail } = useOrder();
-
   const [formData, setFormData] = useState<OrderFormType>({
-    productId: orderDetail.productId,
-    productQuantity: orderDetail.productQuantity,
+    productId: 1,
+    productQuantity: 1,
     gitfMessage: '',
     isCashChecked: false,
     cashReceiptType: '개인소득공제',

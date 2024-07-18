@@ -1,4 +1,6 @@
-import { useOrder } from '@/provider/order/useOrder';
+import { useLocation } from 'react-router-dom';
+
+import { useProductDetail } from '@/api/hooks/useProductDetail';
 import { OrderFormType } from '@/types/orderType';
 
 import { Button } from '@/components/ui/Button';
@@ -7,7 +9,6 @@ import { Container } from '@/components/ui/Layout/Container';
 import { Text } from '@/components/ui/Text';
 
 import { CashCheckForm } from './CashCheckForm';
-import { FinalPrice } from './FinalPrice';
 import { buttonStyle, containerStyle } from './styles';
 
 type PaymentSectionProps = {
@@ -21,7 +22,10 @@ export const PaymentSection = ({
   handleCheckboxChange,
   handleInputChange,
 }: PaymentSectionProps) => {
-  const { orderDetail } = useOrder();
+  const location = useLocation();
+  const { productId, quantity } = location.state;
+  const { productPrice } = useProductDetail(productId);
+  const finalPrice = productPrice * quantity;
 
   return (
     <Container flexDirection="column" gap="1rem" css={containerStyle}>
@@ -35,10 +39,15 @@ export const PaymentSection = ({
         handleInputChange={handleInputChange}
       />
       <Divider />
-      <FinalPrice />
+      <Container justifyContent="space-between" alignItems="center">
+        <Text isBold>최종 결제금액</Text>
+        <Text size="lg" isBold>
+          {finalPrice} 원
+        </Text>
+      </Container>
       <Divider />
       <Button size="large" css={buttonStyle}>
-        {orderDetail.finalPrice} 결제하기
+        {finalPrice} 결제하기
       </Button>
     </Container>
   );

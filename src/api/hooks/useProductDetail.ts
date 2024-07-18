@@ -1,7 +1,6 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { fetchProductDetail } from '@/api/services/productDetail';
-import { OrderProductDetail } from '@/types/orderType';
 
 export const useProductDetail = (productId: number) => {
   const { data, status, error } = useSuspenseQuery({
@@ -17,7 +16,7 @@ export const useProductDetail = (productId: number) => {
 
   const productPrice = data.price.sellingPrice;
 
-  const orderProductDetail: OrderProductDetail = {
+  const orderProductDetail = {
     imageURL: data.imageURL,
     brandName: data.brandInfo.name,
     productName: data.name,
